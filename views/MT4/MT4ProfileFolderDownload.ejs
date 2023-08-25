@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Folder List</title>
+    <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet" />
+</head>
+<style>
+    * {
+        font-family: Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }
+    body {
+        background-color: #bee3f8 !important;
+    }
+</style>
+<%- include("../header.ejs") %>
+
+    <div>
+        <% if (messages.success) { %>
+            <div id="success-message" onclick="hideSuccessMessage()"
+                class="bg-blue-400 rounded text-white py-2 px-4 flex items-center justify-between">
+                <%= messages.success %>
+            </div>
+            <% } %>
+                <% if (messages.error) { %>
+                    <div id="success-message" onclick="hideSuccessMessage()"
+                        class="bg-red-400 rounded text-white py-2 px-4 flex items-center justify-between">
+                        <%= messages.error %>
+                    </div>
+                    <% } %>
+                        <script>
+                            function hideSuccessMessage() {
+                                var successMessage = document.getElementById("success-message");
+                                successMessage.style.display = "none";
+                            }
+                            setTimeout(hideSuccessMessage, 1000);
+                        </script>
+    </div>
+
+    <body>
+        <!-- component -->
+        <div class="min-h-screen text-gray-700 subpixel-antialiased p-8  tracking-wide">
+            <div class="container space-y-8 text-sm mx-auto">
+                <div class="space-y-2">
+                    <div class=" text-center pb-3 font-bold text-3xl text-blue-400">
+                        Profile Folder List
+                    </div>
+                    <div class="bg-white shadow-lg overflow-hidden overflow-x-scroll">
+                        <table class="table table-auto w-full leading-normal">
+                            <thead class="text-gray-600 text-sm font-semibold bg-gray-100">
+                                <tr class="hidden md:table-row">
+                                    <th class="text-left p-3">
+                                        <p>Serial No.</p>
+                                    </th>
+                                    <th class="text-left p-3">
+                                        <p>System Name</p>
+                                    </th>
+                                    <th class="text-left p-3">
+                                        <p>Profile Path</p>
+                                    </th>
+                                    <th class="text-left p-3">
+                                        <p>Action</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="flex-1 text-gray-700 sm:flex-none w-full">
+                                <% if (all.length===0) { %>
+                                    <tr class="text-blue-500 w-full">
+                                        <td class="p-3 text-center" colspan="8">No data available</td>
+                                    </tr>
+                                    <% } else { %>
+                                        <% let count=1; %>
+                                            <% for (let i in all) { %>
+                                                <tr class="text-blue-500 border-dotted border-b-2">
+                                                    <td class="p-3">
+                                                        <div class="flex align-items-center">
+                                                            <%= count %>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3">
+                                                        <div class="flex align-items-center">
+                                                            <%= all[i].system_name %>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 ">
+                                                        <div class="flex align-items-center truncate">
+                                                            <%= all[i].profile_path %>
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-3 block">
+                                                        <a href="/MT4ProfileBackUp/?system_name=<%= all[i].system_name %>&profile_path=<%= all[i].profile_path %>&profile_backup_path=<%= all[i].profile_backup_path %>"
+                                                            class="text-blue-500 hover:text-blue-400">Tack BackUp</a>
+                                                    </td>
+                                                </tr>
+                                                <% count++; %>
+                                                    <% } %>
+                                                        <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <ul class="pagination flex justify-center mt-8">
+                <% if (current> 1) { %>
+                    <li>
+                        <a href="/ProfileFolderdownload/1" class="bg-white px-3 py-2 hover:bg-blue-200">&laquo;&laquo;</a>
+                    </li>
+                    <% } %>
+                        <% if (pages> 1) { %> <% if (current==1) { %>
+                                <li class="disabled cursor-not-allowed">
+                                    <span class="bg-white px-3 py-2">&laquo;</span>
+                                </li>
+                                <% } else { %>
+                                    <li>
+                                        <a href="/ProfileFolderdownload/<%= current - 1 %>"
+                                            class="bg-white px-3 py-2 hover:bg-blue-200">&laquo;</a>
+                                    </li>
+                                    <% } %>
+                                        <% var startPage=Math.max(current - 2, 1); %>
+                                            <% var endPage=Math.min(startPage + 4, pages); %>
+                                                <% if (startPage> 1) { %>
+                                                    <li>
+                                                        <span class="bg-white px-3 py-2">&hellip;</span>
+                                                    </li>
+                                                    <% } %>
+                                                        <% for (var i=startPage; i <=endPage; i++) { %>
+                                                            <% if (i==current) { %>
+                                                                <li>
+                                                                    <span class="bg-blue-600 text-white px-3 py-2">
+                                                                        <%= i %>
+                                                                    </span>
+                                                                </li>
+                                                                <% } else { %>
+                                                                    <li>
+                                                                        <a href="/ProfileFolderdownload/<%= i %>"
+                                                                            class="bg-white px-3 py-2 hover:bg-blue-200">
+                                                                            <%= i %>
+                                                                        </a>
+                                                                    </li>
+                                                                    <% } %>
+                                                                        <% } %>
+                                                                            <% if (endPage < pages) { %>
+                                                                                <li>
+                                                                                    <span
+                                                                                        class="bg-white px-3 py-2">&hellip;</span>
+                                                                                </li>
+                                                                                <% } %>
+                                                                                    <% if (current==pages) { %>
+                                                                                        <li class="disabled cursor-not-allowed">
+                                                                                            <span
+                                                                                                class="bg-white px-3 py-2">&raquo;</span>
+                                                                                        </li>
+                                                                                        <% } else { %>
+                                                                                            <li>
+                                                                                                <a href="/ProfileFolderdownload/<%= current + 1 %>"
+                                                                                                    class="bg-white px-3 py-2 hover:bg-blue-200">&raquo;</a>
+                                                                                            </li>
+                                                                                            <% } %>
+                                                                                                <% if (current < pages) { %>
+                                                                                                    <li>
+                                                                                                        <a href="/ProfileFolderdownload/<%= pages %>"
+                                                                                                            class="bg-white px-3 py-2 hover:bg-blue-200">&raquo;&raquo;</a>
+                                                                                                    </li>
+                                                                                                    <% } %>
+                                                                                                        <% } %>
+            </ul>
+        </div>
+        <style>
+            .table {
+                border-spacing: 0 15px;
+            }
+
+            i {
+                font-size: 1rem !important;
+            }
+        </style>
+    </body>
+
+</html>
+<script>
+    function hideSuccessMessage() {
+        var successMessage = document.getElementById("success-message");
+        successMessage.style.display = "none";
+    }
+    setTimeout(hideSuccessMessage, 5000);
+</script>

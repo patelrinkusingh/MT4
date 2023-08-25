@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Update</title>
+    <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    * {
+        font-family: Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }body {
+        background-color: #bee3f8 !important;
+    }
+</style><%- include("header.ejs") %>
+
+    <body>
+        <div class=" min-h-screen flex items-center capitalize tracking-wide">
+            <div class="w-full">
+                <h2 class="text-center text-blue-400 font-bold text-3xl mb-5">App Update</h2>
+                <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
+                    <!-- App in Edit From -->
+                    <form action="/AppEdit" method="post">
+                        <input type="hidden" name="editid" value="<%= Edit.id %>" />
+                        <div class="mb-5">
+                            <label class="block mb-2 font-bold text-gray-600">Name&nbsp;<span class="text-red-600">*</span></label>
+                            <input type="text" name="name" placeholder="App name"
+                                class="border border-gray-300 shadow p-3 w-full rounded mb-" value="<%= Edit.name %>">
+                            <% if (messages.error&& messages.error.includes('App Name are required')) { %>
+                                <div id="success-message" onclick="hideSuccessMessage()" class=" text-red-600 pl-2">
+                                    <%= messages.error %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="mb-10">
+                            <label class="block mb-2 font-bold text-gray-600">Path&nbsp;<span class="text-red-600">*</span></label>
+                            <input type="text" name="path" placeholder="App Path"
+                                class="border  shadow p-3 w-full rounded mb-" value="<%= Edit.path %>">
+                            <% if (messages.error&& messages.error.includes('App Path are required')) { %>
+                                <div id="success-message" onclick="hideSuccessMessage()" class="text-red-600 pl-2">
+                                    <%= messages.error %>
+                                </div>
+                                <% } %>
+                                    <% if (messages.error&& messages.error.includes('Path is wrong')) { %>
+                                        <div id="success-message" onclick="hideSuccessMessage()"
+                                            class="text-red-600 pl-2">
+                                            <%= messages.error %>
+                                        </div>
+                                        <% } %>
+
+                        </div>
+                        <button type="submit"
+                            class="block w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded">
+                            Update </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<script>
+    function hideSuccessMessage() {
+        var successMessage = document.getElementById("success-message");
+        successMessage.style.display = "none";
+    }
+    setTimeout(hideSuccessMessage, 3000);
+</script>

@@ -1,0 +1,999 @@
+
+
+ <% if (messages.error && messages.error.includes('Email are required')) { %>
+                            <div id="success-message" onclick="hideSuccessMessage()" class="mt-1 text-red-600 pl-2">
+                                <%= messages.error %>
+                            </div>
+                            <% } %>
+                                <% if (messages.error && messages.error.includes('Please enter the valid email')) { %>
+                                    <div id="success-message" onclick="hideSuccessMessage()"
+                                        class="mt-1 text-red-600 pl-2">
+                                        <%= messages.error %>
+                                    </div>
+                                    <% } %>
+                                <% if (messages.error && messages.error.includes('This email is already in use. Please enter a different email.')) { %>
+                                    <div id="success-message" onclick="hideSuccessMessage()"
+                                        class="mt-1 text-red-600 pl-2">
+                                        <%= messages.error %>
+                                    </div>
+                                    <% } %>
+                                        <% if (messages.error && messages.error.includes('Incorrect email')) { %>
+                                            <div id="success-message" onclick="hideSuccessMessage()"
+                                                class="text-red-600 pl-2 mt-1">
+                                                <%= messages.error %>
+                                            </div>
+                                            <% } %>
+
+
+                                            <% if (messages.error && messages.error.includes('Password are required')) { %>
+                                                <div id="success-message" onclick="hideSuccessMessage()" class="text-red-600 pl-2 pt-2 -mt-2">
+                                                    <%= messages.error %>
+                                                </div>
+                                                <% } %>
+                                                    <% if (messages.error&& messages.error.includes('Incorrect password')) { %>
+                                                        <div id="success-message" onclick="hideSuccessMessage()" class="text-red-600 pl-2 pt-2 -mt-2">
+                                                            <%= messages.error %>
+                                                        </div>
+                                                        <% } %>
+
+
+                                                        // const fetchData = async () => {
+                                                        // const query = 'SELECT * FROM meta_trader';
+                                                        // const [result, metadata] = await sequelize.query(query);
+                                                        
+                                                        // if (!lastData) {
+                                                        // lastData = result;
+                                                        // } else {
+                                                        // const lastDataIds = lastData.map(data => data.ID);
+                                                        // const newDataIds = result.map(data => data.ID);
+                                                        // const matchedIds = lastDataIds.filter(id => newDataIds.includes(id));
+                                                        
+                                                        // for (const data of result) {
+                                                        // if (matchedIds.includes(data.ID)) {
+                                                        // const lastDataMatch = lastData.find(d => d.ID === data.ID);
+                                                        // const formattedTime = new Date(lastDataMatch.DateTime).toLocaleString("en-IN", options);
+                                                        // const Time = new Date(data.DateTime).toLocaleString("en-IN", options);
+                                                        
+                                                        // if (formattedTime === Time) {
+                                                        // const { ID, Path } = data;
+                                                        // const childProcess = spawn(Path);
+                                                        // childProcess.on('error', (error) => {
+                                                        // console.error(`Error executing the .exe file: ${error}`);
+                                                        // });
+                                                        // childProcess.stdout.on('data', (data) => {
+                                                        // console.log(`Standard output: ${data}`);
+                                                        // });
+                                                        // childProcess.stderr.on('data', (data) => {
+                                                        // console.error(`Standard error: ${data}`);
+                                                        // });
+                                                        // console.log(`Executed path for ID ${ID}: ${Path}`);
+                                                        // newDataInserted = true;
+                                                        // }
+                                                        // }
+                                                        // }
+                                                        
+                                                        // lastData = result; // Push result data to the beginning of lastData
+                                                        // }
+                                                        // };
+                                                        
+                                                        // const fetchData = async () => {
+                                                        // const query = 'SELECT * FROM meta_trader';
+                                                        // const [result, metadata] = await sequelize.query(query);
+                                                        
+                                                        // if (!lastData) {
+                                                        // lastData = result;
+                                                        // } else {
+                                                        // const lastDataIds = lastData.map(data => data.ID);
+                                                        // const newDataIds = result.map(data => data.ID);
+                                                        // const matchedIds = lastDataIds.filter(id => newDataIds.includes(id));
+                                                        // const matchedData = result.filter(data => {
+                                                        // const lastDataMatch = lastData.find(d => d.ID === data.ID);
+                                                        // const formattedTime = new Date(lastDataMatch.DateTime).toLocaleString("en-IN", options);
+                                                        // const Timematch = new Date(data.DateTime).toLocaleString("en-IN", options);
+                                                        // console.log(formattedTime, Timematch, "matchdata");
+                                                        // return (formattedTime === Timematch);
+                                                        // });
+                                                        // // const matchedData = result.filter(data => matchedIds.includes(data.ID) && data.DateTime !== lastData.find(d =>
+                                                        d.ID === data.ID).DateTime);
+                                                        // result.forEach(data => {
+                                                        // if (matchedData) {
+                                                        // console.log(lastData, result);
+                                                        // const { ID, Path } = data;
+                                                        // const childProcess = spawn(Path);
+                                                        // childProcess.on('error', (error) => {
+                                                        // console.error(`Error executing the .exe file: ${error}`);
+                                                        // });
+                                                        // childProcess.stdout.on('data', (data) => {
+                                                        // console.log(`Standard output: ${data}`);
+                                                        // });
+                                                        // childProcess.stderr.on('data', (data) => {
+                                                        // console.error(`Standard error: ${data}`);
+                                                        // });
+                                                        // console.log(`Executed path for ID ${ID}: ${Path}`);
+                                                        // newDataInserted = true;
+                                                        // }
+                                                        // lastData = result; // Push result data to the beginning of lastData
+                                                        // })
+                                                        
+                                                        // }
+                                                        // };
+                                                        
+                                                        
+                                                        // const fetchData = async () => {
+                                                        // const query = 'SELECT * FROM meta_trader';
+                                                        // const [result, metadata] = await sequelize.query(query);
+                                                        
+                                                        // if (!lastData) {
+                                                        // lastData = result;
+                                                        // } else {
+                                                        // const lastDataIds = lastData.map(data => data.ID);
+                                                        // const newDataIds = result.map(data => data.ID);
+                                                        // const matchedIds = lastDataIds.filter(id => newDataIds.includes(id));
+                                                        
+                                                        // for (const data of result) {
+                                                        // if (matchedIds.includes(data.ID) && data.DateTime !== lastData.find(d => d.ID === data.ID).DateTime) {
+                                                        // const { ID, Path } = data;
+                                                        // const childProcess = spawn(Path);
+                                                        // childProcess.on('error', (error) => {
+                                                        // console.error(`Error executing the .exe file: ${error}`);
+                                                        // });
+                                                        // childProcess.stdout.on('data', (data) => {
+                                                        // console.log(`Standard output: ${data}`);
+                                                        // });
+                                                        // childProcess.stderr.on('data', (data) => {
+                                                        // console.error(`Standard error: ${data}`);
+                                                        // });
+                                                        // console.log(`Executed path for ID ${ID}: ${Path}`);
+                                                        // newDataInserted = true;
+                                                        // break;
+                                                        // }
+                                                        // }
+                                                        // lastData = result;
+                                                        // }
+                                                        // };
+                                                        
+                                                        // const fetchData = async () => {
+                                                        // const query = 'SELECT * FROM meta_trader';
+                                                        // const [result, metadata] = await sequelize.query(query);
+                                                        // const metaip = results.map(data => data.IpAdd);
+                                                        
+                                                        // if (metaip.includes(myip)) {
+                                                        
+                                                        // if (!lastData) {
+                                                        // lastData = result;
+                                                        // } else {
+                                                        // const lastDataIds = lastData.map(data => data.ID);
+                                                        // const newDataIds = result.map(data => data.ID);
+                                                        // const matchedIds = lastDataIds.filter(id => newDataIds.includes(id));
+                                                        // // const matchedData = result.filter(data => matchedIds.includes(data.ID) && data.DateTime !== lastData.find(d =>
+                                                        d.ID === data.ID).DateTime);
+                                                        // const matchedData = result.filter(data => {
+                                                        // const lastDataMatch = lastData.find(d => d.ID === data.ID);
+                                                        // return matchedIds.includes(data.ID) && (!lastDataMatch || data.DateTime !== lastDataMatch.DateTime);
+                                                        // });
+                                                        
+                                                        // if (matchedData.length > 0) {
+                                                        // matchedData.forEach(data => {
+                                                        // const { ID, Path } = data;
+                                                        // const childProcess = spawn(Path);
+                                                        // childProcess.on('error', (error) => {
+                                                        // console.error(`Error executing the .exe file: ${error}`);
+                                                        // });
+                                                        // childProcess.stdout.on('data', (data) => {
+                                                        // console.log(`Standard output: ${data}`);
+                                                        // });
+                                                        // childProcess.stderr.on('data', (data) => {
+                                                        // console.error(`Standard error: ${data}`);
+                                                        // });
+                                                        // console.log(`Executed path for ID ${ID}: ${Path}`);
+                                                        // });
+                                                        // newDataInserted = true;
+                                                        // }
+                                                        // }
+                                                        // }
+                                                        // };
+                                                        
+                                                        // if (!newDataInserted) {
+                                                        // const paths = result.map(data => data.Path.replace(/\\/g, "/"));
+                                                        // paths.forEach(filePath => {
+                                                        // const childProcess = spawn(filePath);
+                                                        // childProcess.on('error', (error) => {
+                                                        // console.error(`Error executing the .exe file: ${error}`);
+                                                        // });
+                                                        // childProcess.stdout.on('data', (data) => {
+                                                        // console.log(`Standard output: ${data}`);
+                                                        // });
+                                                        // childProcess.stderr.on('data', (data) => {
+                                                        // console.error(`Standard error: ${data}`);
+                                                        // });
+                                                        // });
+                                                        // console.log('No new data inserted in the last 20 seconds');
+                                                        
+                                                        // }
+                                                        // newDataInserted = false;
+                                                        // const fetchData = async () => {
+                                                        //
+                                                        // const metaip = results.map(data => data.IpAdd);
+                                                        // const metaip = results.map(data => data.IpAdd);
+                                                        
+                                                        // if (metaip.includes(myip)) {
+                                                        // if (!lastData) {
+                                                        // lastData = results;
+                                                        // console.log(results);
+                                                        // } else {
+                                                        // for (let i = 0; i < results.length; i++) { // const newRow=results[i]; // if (JSON.stringify(results)
+                                                            !==JSON.stringify(lastData)) { // console.log(results); // lastData=results; // newDataInserted=true; // const
+                                                            path=results[i].path; // const childProcess=spawn(path); // childProcess.on('error', (error)=> {
+                                                            // console.error(`Error executing the .exe file: ${error}`);
+                                                            // });
+                                                            // childProcess.stdout.on('data', (data) => {
+                                                            // console.log(`Standard output: ${data}`);
+                                                            // });
+                                                            // childProcess.stderr.on('data', (data) => {
+                                                            // console.error(`Standard error: ${data}`);
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            // if (!newDataInserted) {
+                                                            // console.log('No new data inserted in the last 20 seconds');
+                                                            // }
+                                                            // }
+                                                            // newDataInserted = false;
+                                                            // newDataInserted = false;
+                                                            // }
+                                                            // };
+
+
+
+                                                            // if (fs.existsSync(globalvar_backup_path)) {
+                                                            // console.log("exists", globalvar_backup_path);
+                                                            // GlobalvarFile.findOne().then((data1) => {
+                                                            // if (!data1) {
+                                                            // console.log("File not found");
+                                                            // return;
+                                                            // }
+                                                            // else {
+                                                            // GlobalvarFile.findOne()
+                                                            // .then((Data) => {
+                                                            // if (!Data) {
+                                                            // console.log('File not found');
+                                                            // return console.log('File not found');
+                                                            // }
+                                                            // fs.writeFile(path.join(globalvar_backup_path, filePath), Data.file, function (err) {
+                                                            // if (err) throw err;
+                                                            // console.log('File saved successfully.');
+                                                            // });
+                                                            // fs.writeFile(path.join(updatedPath, filePath), Data.file, function (err) {
+                                                            // if (err) throw err;
+                                                            // console.log('File saved successfully.');
+                                                            // });
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // } else {
+                                                            // console.log("Not exists", globalvar_backup_path);
+                                                            // fs.mkdir(globalvar_backup_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_backup_path} directory successfully created.`
+                                                            // );
+                                                            // GlobalvarFile.findOne()
+                                                            // .then((Data) => {
+                                                            // if (!Data) {
+                                                            // console.log('File not found');
+                                                            // return console.log('File not found');
+                                                            // }
+                                                            // fs.writeFile(path.join(globalvar_backup_path, filePath), Data.file, function (err) {
+                                                            // if (err) throw err;
+                                                            // console.log('File saved successfully.');
+                                                            // });
+                                                            // fs.writeFile(path.join(updatedPath, filePath), Data.file, function (err) {
+                                                            // if (err) throw err;
+                                                            // console.log('File saved successfully.');
+                                                            // });
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+
+
+                                                            // const GlobalVar = () => {
+                                                            // let ipFound1 = false;
+                                                            // MT4Model.findAll({}).then((data) => {
+                                                            // data.forEach((data) => {
+                                                            // if (data.ip_add === myip) {
+                                                            // ipFound1 = true;
+                                                            // const system_name = data.system_name;
+                                                            // const globalvar_path = data.globalvar_path;
+                                                            // const globalvar_backup_path = data.globalvar_backup_path;
+                                                            // const filepath = path.join(globalvar_backup_path, path.basename(globalvar_path));
+                                                            // const modifidtime1 = getLastModificationDate(globalvar_path);
+                                                            // const modifidtime2 = getLastModificationDate(filepath);
+                                                            // const date1 = new Date(Date.parse(modifidtime1));
+                                                            // const date2 = new Date(Date.parse(modifidtime2));
+                                                            
+                                                            // console.log("system_name:", system_name);
+                                                            // console.log("globalvar_path:", globalvar_path);
+                                                            // console.log("globalvar_backup_path:", globalvar_backup_path);
+                                                            // console.log("filepath:", filepath);
+                                                            // console.log("modifidtime1:", modifidtime1);
+                                                            // console.log("modifidtime2:", modifidtime2);
+                                                            // console.log("date1:", date1);
+                                                            // console.log("date2:", date2);
+                                                            
+                                                            // // const zipfolder_path = path.basename(globalvar_path) + ".zip";
+                                                            // if (date1 > date2) {
+                                                            // const zipfolder_path = "gvariables.zip";
+                                                            // if (fs.existsSync(globalvar_backup_path)) {
+                                                            // console.log("exists", globalvar_backup_path);
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists heello", globalvar_path);
+                                                            // console.log("har har mahadev");
+                                                            // const output = fs.createWriteStream(zipfolder_path);
+                                                            // const archive = archiver("zip", {
+                                                            // zlib: { level: 9 },
+                                                            // });
+                                                            // archive.on("error", function (err) {
+                                                            // console.error("Error while compressing the folder:", err);
+                                                            // });
+                                                            // archive.pipe(output);
+                                                            // // archive.directory(globalvar_path, false);
+                                                            // archive.file(globalvar_path, { name: zipfolder_path });
+                                                            // archive.finalize();
+                                                            // output.on("close", function () {
+                                                            // console.log("Folder compressed successfully.");
+                                                            // const destinationPath = path.join(
+                                                            // globalvar_backup_path,
+                                                            // path.basename(zipfolder_path)
+                                                            // );
+                                                            
+                                                            // fs.rename(zipfolder_path, destinationPath, (err) => {
+                                                            // if (err) {
+                                                            // console.error(
+                                                            // "Error while moving the zip folder:",
+                                                            // err
+                                                            // );
+                                                            // } else {
+                                                            // console.log(
+                                                            // `Zip folder successfully moved to ${globalvar_backup_path}.`
+                                                            // );
+                                                            // }
+                                                            // });
+                                                            // GlobalVarUploadFile(zipfolder_path, system_name);
+                                                            // });
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_path);
+                                                            // fs.mkdir(globalvar_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_path} directory successfully created.`
+                                                            // );
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_backup_path);
+                                                            // fs.mkdir(globalvar_backup_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_backup_path} directory successfully created.`
+                                                            // );
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists", globalvar_path);
+                                                            // fs.readdir(globalvar_path, (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            // if (files.length) {
+                                                            // console.log("Folder not empty - backup code");
+                                                            // const output = fs.createWriteStream(zipfolder_path);
+                                                            // const archive = archiver("zip", {
+                                                            // zlib: { level: 9 },
+                                                            // });
+                                                            // archive.on("error", function (err) {
+                                                            // console.error(
+                                                            // "Error while compressing the folder:",
+                                                            // err
+                                                            // );
+                                                            // });
+                                                            // archive.pipe(output);
+                                                            // archive.directory(globalvar_path, false);
+                                                            // archive.finalize();
+                                                            // output.on("close", function () {
+                                                            // console.log("Folder compressed successfully.");
+                                                            // const destinationPath = path.join(
+                                                            // globalvar_backup_path,
+                                                            // path.basename(zipfolder_path)
+                                                            // );
+                                                            // fs.rename(zipfolder_path, destinationPath, (err) => {
+                                                            // if (err) {
+                                                            // console.error(
+                                                            // "Error while moving the zip folder:",
+                                                            // err
+                                                            // );
+                                                            // } else {
+                                                            // console.log(
+                                                            // `Zip folder successfully moved to ${globalvar_backup_path}.`
+                                                            // );
+                                                            // }
+                                                            // });
+                                                            // GlobalVarUploadFile(zipfolder_path, system_name);
+                                                            // });
+                                                            // } else {
+                                                            // console.log("Folder empty -backup code");
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_path);
+                                                            // fs.mkdir(globalvar_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_path} directory successfully created.`
+                                                            // );
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            // // globalvar_path
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists", globalvar_path);
+                                                            // } else {
+                                                            // console.log("Not exists", globalvar_path);
+                                                            // if (fs.existsSync(globalvar_backup_path)) {
+                                                            // console.log("exists", globalvar_backup_path);
+                                                            // fs.readdir(globalvar_backup_path, (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            // if (files.length) {
+                                                            // console.log("Folder not empty - backup code");
+                                                            // fs.copyFile(filepath, globalvar_path, (err) => {
+                                                            // if (err) throw err;
+                                                            // console.log(`File conpied from ${filepath} to ${globalvar_path}`);
+                                                            // });
+                                                            // }
+                                                            // else {
+                                                            // axios.get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // else {
+                                                            // fs.mkdir(globalvar_backup_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // }
+                                                            // else {
+                                                            // console.log(`New ${globalvar_backup_path} directory successfully created.`);
+                                                            // axios.get("http://localhost:9999/MT4GlobalvarBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            
+                                                            // }
+                                                            // });
+                                                            // });
+                                                            // };
+                                                            // const GlobalVar = () => {
+                                                            // let ipFound1 = false;
+                                                            // MT4Model.findAll({}).then((data) => {
+                                                            // data.forEach((data) => {
+                                                            // if (data.ip_add === myip) {
+                                                            // ipFound1 = true;
+                                                            // const system_name = data.system_name;
+                                                            // const globalvar_path = data.globalvar_path;
+                                                            // const globalvar_backup_path = data.globalvar_backup_path;
+                                                            // const filepath = path.join(globalvar_backup_path, path.basename(globalvar_path));
+                                                            // const modifidtime1 = getLastModificationDate(globalvar_path);
+                                                            // const modifidtime2 = getLastModificationDate(filepath);
+                                                            // const date1 = new Date(Date.parse(modifidtime1));
+                                                            // const date2 = new Date(Date.parse(modifidtime2));
+                                                            // console.log(date2);
+                                                            // // const zipfolder_path = path.basename(globalvar_path) + ".zip";
+                                                            // if (date1 > date2 || date2 == "Invalid Date") {
+                                                            // const zipfolder_path = "gvariables.zip";
+                                                            // if (fs.existsSync(globalvar_backup_path)) {
+                                                            // console.log("exists", globalvar_backup_path);
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists heello", globalvar_path);
+                                                            // console.log("har har mahadev");
+                                                            // const output = fs.createWriteStream(zipfolder_path);
+                                                            // const archive = archiver("zip", {
+                                                            // zlib: { level: 9 },
+                                                            // });
+                                                            // archive.on("error", function (err) {
+                                                            // console.error("Error while compressing the folder:", err);
+                                                            // });
+                                                            // archive.pipe(output);
+                                                            // // archive.directory(globalvar_path, false);
+                                                            // archive.file(globalvar_path, { name: zipfolder_path });
+                                                            // archive.finalize();
+                                                            // output.on("close", function () {
+                                                            // console.log("Folder compressed successfully.");
+                                                            // GlobalVarUploadFile(zipfolder_path, system_name);
+                                                            // });
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_path);
+                                                            // fs.mkdir(globalvar_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_path} directory successfully created.`
+                                                            // );
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_backup_path);
+                                                            // fs.mkdir(globalvar_backup_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_backup_path} directory successfully created.`
+                                                            // );
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists", globalvar_path);
+                                                            // fs.readdir(globalvar_path, (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            // if (files.length) {
+                                                            // console.log("Folder not empty - backup code");
+                                                            // const output = fs.createWriteStream(zipfolder_path);
+                                                            // const archive = archiver("zip", {
+                                                            // zlib: { level: 9 },
+                                                            // });
+                                                            // archive.on("error", function (err) {
+                                                            // console.error(
+                                                            // "Error while compressing the folder:",
+                                                            // err
+                                                            // );
+                                                            // });
+                                                            // archive.pipe(output);
+                                                            // archive.directory(globalvar_path, false);
+                                                            // archive.finalize();
+                                                            // output.on("close", function () {
+                                                            // console.log("Folder compressed successfully.");
+                                                            // const destinationPath = path.join(
+                                                            // globalvar_backup_path,
+                                                            // path.basename(zipfolder_path)
+                                                            // );
+                                                            // fs.rename(zipfolder_path, destinationPath, (err) => {
+                                                            // if (err) {
+                                                            // console.error(
+                                                            // "Error while moving the zip folder:",
+                                                            // err
+                                                            // );
+                                                            // } else {
+                                                            // console.log(
+                                                            // `Zip folder successfully moved to ${globalvar_backup_path}.`
+                                                            // );
+                                                            // }
+                                                            // });
+                                                            // GlobalVarUploadFile(zipfolder_path, system_name);
+                                                            // });
+                                                            // } else {
+                                                            // console.log("Folder empty -backup code");
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // } else {
+                                                            // console.log("not exists", globalvar_path);
+                                                            // fs.mkdir(globalvar_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // } else {
+                                                            // console.log(
+                                                            // `New ${globalvar_path} directory successfully created.`
+                                                            // );
+                                                            // axios
+                                                            // .get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            // // globalvar_path
+                                                            // if (fs.existsSync(globalvar_path)) {
+                                                            // console.log("exists", globalvar_path);
+                                                            // } else {
+                                                            // console.log("Not exists", globalvar_path);
+                                                            // if (fs.existsSync(globalvar_backup_path)) {
+                                                            // console.log("exists", globalvar_backup_path);
+                                                            // fs.readdir(globalvar_backup_path, (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            // if (files.length) {
+                                                            // console.log("Folder not empty - backup code");
+                                                            // fs.copyFile(filepath, globalvar_path, (err) => {
+                                                            // if (err) throw err;
+                                                            // console.log(`File conpied from ${filepath} to ${globalvar_path}`);
+                                                            // });
+                                                            // }
+                                                            // else {
+                                                            // axios.get("http://localhost:9999/MT4ProfileBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // else {
+                                                            // fs.mkdir(globalvar_backup_path, function (err) {
+                                                            // if (err) {
+                                                            // console.log(err);
+                                                            // }
+                                                            // else {
+                                                            // console.log(`New ${globalvar_backup_path} directory successfully created.`);
+                                                            // axios.get("http://localhost:9999/MT4GlobalvarBackUp")
+                                                            // .catch(function (error) {
+                                                            // console.error("response.data err" + error);
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // }
+                                                            
+                                                            // }
+                                                            // });
+                                                            // });
+                                                            // };
+
+                                                            // const ProfileModeChack = async () => {
+                                                            // try {
+                                                            // const tableExists = await MT4Model.describe();
+                                                            // if (!tableExists) {
+                                                            // console.log("MT4Model table does not exist.");
+                                                            // return;
+                                                            // } else {
+                                                            // MT4Model.findOne({ where: { system_name: pchostname }})
+                                                            // .then((data) => {
+                                                            // console.log("ProfileModeChack in ip found");
+                                                            // if (data.system_name === pchostname) {
+                                                            // data.forEach((item) => {
+                                                            // if (item.system_name === pchostname) {
+                                                            // const profile_folder_path = item.profile_path;
+                                                            // const globalvar_path = item.globalvar_path;
+                                                            // const globalvar_backup_path = item.globalvar_backup_path;
+                                                            // const profile_folder_path_modifidtime = getLastModificationDate(profile_folder_path);
+                                                            // fs.readdir(profile_folder_path, (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            // if (files.length) {
+                                                            // startWatcher(profile_folder_path, globalvar_path, globalvar_backup_path, schedule);
+                                                            // }
+                                                            // });
+                                                            // } else {
+                                                            // console.log("ProfileModeChack in ip not found");
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // } catch (error) {
+                                                            // console.error("Error while fetching data from MT4Model table:", error);
+                                                            // }
+                                                            // };
+                                                            // profile files
+
+
+
+                                                            // const ProfileModeChack = async () => {
+                                                            // try {
+                                                            // const tableExists = await MT4Model.describe();
+                                                            
+                                                            // if (!tableExists) {
+                                                            // console.log("MT4Model table does not exist.");
+                                                            // return;
+                                                            // }
+                                                            
+                                                            // const data = await MT4Model.findOne({ where: { system_name: pchostname } });
+                                                            // if (data.system_name === pchostname) {
+                                                            // const profile_folder_path = data.profile_path;
+                                                            // console.log(profile_folder_path + "\n" + "\n" + "\n" + "\n" + "\n" + "hhhhhhhhhhhhhhhheeeeeh");
+                                                            // const profile_backup_path = data.profile_backup_path;
+                                                            // const globalvar_path = data.globalvar_path;
+                                                            // const globalvar_backup_path = data.globalvar_backup_path;
+                                                            // const folderExists = await fs.existsSync(profile_backup_path);;
+                                                            // console.log("folderExists " + folderExists);
+                                                            // if (folderExists !== true) {
+                                                            // console.log("me chala 0");
+                                                            // await Profile();
+                                                            // }
+                                                            // const folderExists1 = await fs.existsSync(profile_folder_path);
+                                                            // console.log("folderExists1 " + folderExists1);
+                                                            // if (folderExists1 !== true) {
+                                                            // console.log("me chala 1");
+                                                            // await Profile();
+                                                            // }
+                                                            
+                                                            // fs.readdir(profile_folder_path, async (err, files) => {
+                                                            // if (err) {
+                                                            // console.error("Error:", err);
+                                                            // return;
+                                                            // }
+                                                            
+                                                            // if (files.length === 0) {
+                                                            // console.log("me chala 2");
+                                                            // await Profile();
+                                                            // }
+                                                            // if (files.length) {
+                                                            // startWatcher(profile_folder_path, globalvar_path, globalvar_backup_path, schedule);
+                                                            // }
+                                                            // });
+                                                            // }
+                                                            // } catch (error) {
+                                                            // console.error("Error while fetching data from MT4Model table:", error);
+                                                            // }
+                                                            // };
+
+
+
+
+                                                            //Profile change data
+                                                            // let isChangeDetected = false;
+                                                            //
+                                                            // var chokidar = require('chokidar');
+                                                            // const startWatcher = async (profile_folder_path, profile_backup_path, globalvar_path, globalvar_backup_path,
+                                                            schedule) => {
+                                                            // const data = await ProfileFile.findAll({ where: { profile_folder_path: profile_folder_path } });
+                                                            
+                                                            // if (data) {
+                                                            // const ignoredPaths = [
+                                                            // /^\./, // Ignore hidden files and folders
+                                                            // new RegExp(globalvar_path.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')), // Escape regex special characters
+                                                            // new RegExp(globalvar_backup_path.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')) // Escape regex special characters
+                                                            // ];
+                                                            // const watcher = chokidar.watch(profile_folder_path, {
+                                                            // ignored: ignoredPaths,
+                                                            // persistent: true
+                                                            // });
+                                                            // const handleEvent = (event, file) => {
+                                                            // // console.log(`${file} was ${event}`);
+                                                            // // ProfileBackUprecover(profile_folder_path, profile_backup_path);
+                                                            // // isChangeDetected = true;
+                                                            // // schedule.stop();
+                                                            // if (isWatcherActive) { // Check if the watcher should continue
+                                                            // console.log(`${file} was ${event}`);
+                                                            // ProfileBackUprecover(profile_folder_path, profile_backup_path);
+                                                            // schedule.stop();
+                                                            // isChangeDetected = true;
+                                                            // }
+                                                            
+                                                            // };
+                                                            // // watcher.on('addDir', (file) => handleEvent(`Directory ${file} has been added`))
+                                                            // watcher.on('unlinkDir', (file) => handleEvent(`Directory ${file} has been removed`))
+                                                            // watcher.on('created', (file) => handleEvent('created', file));
+                                                            // watcher.on('change', (file) => handleEvent('changed', file));
+                                                            // watcher.on('unlink', (file) => handleEvent('removed', file));
+                                                            // watcher.on('error', (error) => console.error('Error happened', error));
+                                                            
+                                                            // } else {
+                                                            // Profile();
+                                                            // }
+                                                            
+                                                            // };
+                                                            // const ProfileModeChack = async () => {
+                                                            // try {
+                                                            // const dataEntries = await MT4Model.findAll({ where: { system_name: pchostname } });
+                                                            // for (const data of dataEntries) {
+                                                            // const profile_folder_path = data.profile_path;
+                                                            // console.log(profile_folder_path + "\n" + "\n" + "\n" + "\n" + "\n" + "hhhhhhhhhhhhhhhheeeeeh");
+                                                            // const profile_backup_path = data.profile_backup_path;
+                                                            // const globalvar_path = data.globalvar_path;
+                                                            // const globalvar_backup_path = data.globalvar_backup_path;
+                                                            // const folderExists = await fs.existsSync(profile_backup_path);
+                                                            // console.log("folderExists " + folderExists);
+                                                            
+                                                            // const folderExists1 = await fs.existsSync(profile_folder_path);
+                                                            // console.log("folderExists1 " + folderExists1);
+                                                            // if (!folderExists1) {
+                                                            // console.log("me chala 1");
+                                                            // await Profile();
+                                                            // }
+                                                            
+                                                            // const files = await fs.promises.readdir(profile_folder_path);
+                                                            // if (files.length === 0) {
+                                                            // console.log("me chala 2");
+                                                            // await Profile();
+                                                            // }
+                                                            // if (files.length) {
+                                                            // startWatcher(profile_folder_path, profile_backup_path, globalvar_path, globalvar_backup_path, schedule);
+                                                            // }
+                                                            // }
+                                                            // } catch (error) {
+                                                            // console.error("Error during ProfileModeCheck:", error);
+                                                            // }
+                                                            // };
+
+                                                            if (fs.existsSync(globalvar_backup_path)) {
+                                                            if (fs.existsSync(globalvar_path)) {
+                                                            console.log("exists hello", globalvar_path);
+                                                            console.log("har har mahadev");
+                                                            const output = fs.createWriteStream(zipFilePath);
+                                                            const archive = archiver("zip", {
+                                                            zlib: { level: 9 },
+                                                            });
+                                                            archive.on("error", function (err) {
+                                                            console.error("Error while compressing the folder:", err);
+                                                            });
+                                                            archive.pipe(output);
+                                                            archive.file(globalvar_path, { name: path.basename(globalvar_path) });
+                                                            archive.finalize();
+                                                            output.on("close", function () {
+                                                            console.log("Folder compressed successfully.");
+                                                            const destinationPath = path.join(globalvar_backup_path, path.basename(zipFilePath));
+                                                            fs.rename(zipFilePath, destinationPath, async (err) => {
+                                                            if (err) {
+                                                            console.error("Error while moving the zip folder:", err);
+                                                            } else {
+                                                            console.log(`Zip folder successfully moved to ${globalvar_backup_path}.`);
+                                                            GlobalFileRestore.create({
+                                                            system_name: system_name,
+                                                            globalvar_path: globalvar_path,
+                                                            time: updateAndLogCurrentDate(),
+                                                            });
+                                                            const emailSubject = `The ${system_name} name system automatically creates backups of the gvariables file.`;
+                                                            const name = ["globalvar_backup_path", "zipFilePath"];
+                                                            const paths = [globalvar_backup_path, zipFilePath];
+                                                            const emailText = { name: name, paths: paths };
+                                                            const isEmailSent = await sendEmail(emailSubject, emailText);
+                                                            if (isEmailSent) {
+                                                            console.log("Email sent successfully.");
+                                                            } else {
+                                                            console.log("Email sending failed.");
+                                                            }
+                                                            GlobalVarUploadFile(destinationPath, globalvar_path, system_name);
+                                                            }
+                                                            });
+                                                            });
+                                                            }
+                                                            } else {
+                                                            console.log("not exists", globalvar_backup_path);
+                                                            fs.mkdir(globalvar_backup_path, function (err) {
+                                                            if (err) {
+                                                            console.log(err);
+                                                            } else {
+                                                            console.log(
+                                                            `New ${globalvar_backup_path} directory successfully created.`
+                                                            );
+                                                            if (fs.existsSync(globalvar_path)) {
+                                                            console.log("exists hello", globalvar_path);
+                                                            console.log("har har mahadev");
+                                                            const output = fs.createWriteStream(zipFilePath);
+                                                            const archive = archiver("zip", {
+                                                            zlib: { level: 9 },
+                                                            });
+                                                            archive.on("error", function (err) {
+                                                            console.error("Error while compressing the folder:", err);
+                                                            });
+                                                            archive.pipe(output);
+                                                            archive.file(globalvar_path, { name: path.basename(globalvar_path) });
+                                                            archive.finalize();
+                                                            output.on("close", function () {
+                                                            console.log("Folder compressed successfully.");
+                                                            const destinationPath = path.join(globalvar_backup_path, path.basename(zipFilePath));
+                                                            fs.rename(zipFilePath, destinationPath, async (err) => {
+                                                            if (err) {
+                                                            console.error("Error while moving the zip folder:", err);
+                                                            } else {
+                                                            console.log(`Zip folder successfully moved to ${globalvar_backup_path}.`);
+                                                            GlobalFileRestore.create({
+                                                            system_name: system_name,
+                                                            globalvar_path: globalvar_path,
+                                                            time: updateAndLogCurrentDate(),
+                                                            });
+                                                            const emailSubject = `The ${system_name} name system automatically creates backups of the gvariables file.`;
+                                                            const name = ["globalvar_backup_path", "zipFilePath"];
+                                                            const paths = [globalvar_backup_path, zipFilePath];
+                                                            const emailText = { name: name, paths: paths };
+                                                            const isEmailSent = await sendEmail(emailSubject, emailText);
+                                                            if (isEmailSent) {
+                                                            console.log("Email sent successfully.");
+                                                            } else {
+                                                            console.log("Email sending failed.");
+                                                            }
+                                                            GlobalVarUploadFile(destinationPath, globalvar_path, system_name);
+                                                            }
+                                                            });
+                                                            });
+                                                            }
+                                                            }
+                                                            });
+                                                            }
+
+
+
+                                                            // switch (event) {
+                                                            // case 'add':
+                                                            // if (filecheckup == false) {
+                                                            // console.log(`File ${filename} was added to folder ${profile_folder_path}.`);
+                                                            // isChangeDetected = true;
+                                                            // fileWatcher.close();
+                                                            // schedule.stop();
+                                                            // return ProfileBackUprecover(profile_folder_path, profile_backup_path, fileWatcher);
+                                                            // }
+                                                            // break;
+                                                            // case 'change':
+                                                            // if (filecheckup == false) {
+                                                            // console.log(`File ${filename} in folder ${profile_folder_path} was modified.`);
+                                                            // isChangeDetected = true;
+                                                            // schedule.stop();
+                                                            // fileWatcher.close();
+                                                            // return ProfileBackUprecover(profile_folder_path, profile_backup_path, fileWatcher);
+                                                            // }
+                                                            // break;
+                                                            // case 'unlink':
+                                                            // if (filecheckup == false) {
+                                                            // console.log(`File ${filename} was deleted from folder ${profile_folder_path}.`);
+                                                            // isChangeDetected = true;
+                                                            // schedule.stop();
+                                                            // fileWatcher.close();
+                                                            // return ProfileBackUprecover(profile_folder_path, profile_backup_path, fileWatcher);
+                                                            // }
+                                                            // break;
+                                                            // default:
+                                                            // if (filecheckup == false) {
+                                                            // console.log(`Event ${event} occurred for file ${filename}.`);
+                                                            // isChangeDetected = true;
+                                                            // schedule.stop();
+                                                            // fileWatcher.close();
+                                                            // return ProfileBackUprecover(profile_folder_path, profile_backup_path, fileWatcher);
+                                                            // }
+                                                            // break;
+                                                            // }

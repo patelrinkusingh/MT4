@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Add</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+
+</head>
+<style>
+    * {
+        font-family: Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        	
+    }
+   body {
+        background-color: #bee3f8 !important;
+    }
+
+</style>
+<%- include("header.ejs") %>
+
+    <body >
+        <div class="h-full pt-10 flex items-center">
+            <div class="w-full">
+                <h2 class="text-center text-blue-400 font-bold text-3xl mb-5">App Add</h2>
+                <div class="bg-white  p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
+                    <% if (messages.error&& messages.error.includes('App is already running')) { %>
+                        <div id="success-message" onclick="hideSuccessMessage()"
+                            class="rounded text-red-600 pl-2 pt-2 ">
+                            <%= messages.error %>
+                        </div>
+                        <% } %>
+                            <div class="py-2">
+                                <% if (messages.success&& messages.success.includes("This application already exists"))
+                                    { %>
+                                    <div id="success-message" onclick="hideSuccessMessage()"
+                                        class="text-red-600 pl-2 pt-2">
+                                        <%= messages.success %>
+                                    </div>
+                                    <% } %>
+                                        <% if (messages.success&& messages.success.includes("Application Add")) { %>
+                                            <div id="success-message" onclick="hideSuccessMessage()"
+                                                class="text-green-600 pl-2 pt-2">
+                                                <%= messages.success %>
+                                            </div>
+                                            <% } %>
+                            </div>
+                            <!-- App -->
+                            <form action="/AppName" id="AppName" method="post">
+                                <input type="hidden" id="userData" value="<%= user %>" />
+                                <input type="hidden" value="<%= formData %>" />
+                                <div>
+                                    <label class="block mb-2 font-bold text-gray-600">Name&nbsp;<span
+                                            class="text-red-600">*</span></label>
+                                    <input type="text" name="name" placeholder="Name"
+                                        class="border border-gray-300 shadow p-3 w-full rounded mb-"
+                                        value="<%= formData.name || '' %>">
+                                </div>
+                                <% if (messages.error) { %>
+                                    <% if (messages.error.includes('Name is required')) { %>
+                                        <div id="email-error-message" onclick="hideErrorMessage()" class="mt-1 text-red-600 pl-2">
+                                            <%= messages.error %>
+                                        </div>
+                                        <% } %>
+                                            <% } %>
+                                        <div>
+                                            <label class="block mb-2 mt-5 font-bold text-gray-600">Path&nbsp;<span
+                                                    class="text-red-600">*</span></label>
+                                            <input type="text" name="path" placeholder="Path"
+                                                class="border shadow p-3 w-full rounded mb-"
+                                                value="<%= formData.path || '' %>">
+
+                                        </div>
+                                        <% if (messages.error) { %>
+                                            <% if (messages.error.includes('Path is required')) { %>
+                                                <div id="email-error-message" onclick="hideErrorMessage()" class="mt-1 text-red-600 pl-2">
+                                                    <%= messages.error %>
+                                                </div>
+                                                <% } %>
+                                                    <% } %>
+                                                <% if (messages.error&& messages.error.includes('Path is wrong')) { %>
+                                                    <div id="success-message" onclick="hideSuccessMessage()"
+                                                        class="rounded text-red-600 pl-2 pt-2 ">
+                                                        <%= messages.error %>
+                                                    </div>
+                                                    <% } %>
+                                                        <button type="submit"
+                                                            class="block mt-8 w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 rounded">
+                                                            Save</button>
+                            </form>
+                </div>
+            </div>
+        </div>
+    </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+
+</html>
+<script>
+    window.onload = function () {
+        document.getElementById("AppName").reset();
+    }
+    function hideSuccessMessage() {
+        var successMessage = document.getElementById("success-message");
+        successMessage.style.display = "none";
+    }
+    setTimeout(hideSuccessMessage, 3000);
+
+</script>

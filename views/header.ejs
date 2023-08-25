@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<style>
+  /* styles.css or in a <style> block */
+  .img-with-background {
+    background-color: #f1f1f1;
+  }
+</style>
+
+<body class="select-none">
+  <input type="hidden" id="userData" value="<%= user %>" />
+  <div class="header-2 sticky top-0 w-full z-50">
+    <nav class="bg-[#dbeafe] py-2">
+      <div class="container mx-auto md:flex md:items-center">
+        <div class="relative">
+          <!-- <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
+            class="flex mx-3 text-sm rounded-full md:mr-0 focus:ring-4"
+            type="button">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="/views/images/man.png" alt="user photo">
+          </button> -->
+          <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
+            class="flex mx-3 text-sm rounded-full md:mr-0 " type="button">
+            <span class="sr-only">Open user menu</span>
+            <div
+              class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-100 ring-2 ring-gray-300 dark:ring-gray-500">
+              <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                </path>
+              </svg>
+            </div>
+
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdownAvatar"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+              <div id="username">Bonnie Green</div>
+              <div id="email" class="font-medium truncate"></div>
+            </div>
+            <div class="py-2">
+              <a href="/Logout"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                out</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+          <div class="inline-block">
+            <button id="dropdownUserAvatarButton1" data-dropdown-toggle="dropdownAvatar1"
+              class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-blue-200 hover:text-white transition-colors duration-300"
+              type="button">User's</button>
+            <div id="dropdownAvatar1"
+              class="z-10 hidden flex-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton1">
+                <li>
+                  <a href="/RegisterPage" id="register"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User&nbsp;Add</a>
+                </li>
+                <li>
+                  <a href="/RegisterView" id="registerview"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User&nbsp;List</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="inline-block">
+            <button id="dropdownUserAvatarButton2" data-dropdown-toggle="dropdownAvatar2"
+              class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-blue-200 hover:text-white transition-colors duration-300"
+              type="button">MT4 Manage</button>
+            <div id="dropdownAvatar2"
+              class="z-10 hidden flex-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton2">
+                <li>
+                  <a href="/MT4Page"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add&nbsp;New&nbsp;Instance</a>
+                </li>
+                <li>
+                  <a href="/MT4ViewPage"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Instance&nbsp;List</a>
+                </li>
+                <li>
+                  <a href="/MT4ProfileBackUpList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile&nbsp;Folder&nbsp;And</br>GlobalVar&nbsp;File&nbsp;List</a>
+                </li>
+                <li>
+                  <a href="/MT4AppsLogList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">MT4&nbsp;Instance&nbsp;List</a>
+                </li>
+                <li>
+                  <a href="/ProfileFolderdownload"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile&nbsp;Folder&nbsp;Download</a>
+                </li>
+                <li>
+                  <a href="/GlobalVarFiledownload"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Global Var File Download</a>
+                </li>
+                <li>
+                  <a href="/MT4ProfileFolderRestoreList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile Folder Backup Restore List</a>
+                </li>
+                <li>
+                  <a href="/MT4GlobalFileRestoreList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Global Var File Backup Restore List</a>
+                </li>
+                <li>
+                  <a href="/ErorrLogList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Error Log</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="inline-block">
+            <button id="dropdownUserAvatarButton3" data-dropdown-toggle="dropdownAvatar3"
+              class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-blue-200 hover:text-white transition-colors duration-300"
+              type="button">App</button>
+            <div id="dropdownAvatar3"
+              class="z-10 hidden flex-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton3">
+                <li>
+                  <a href="/AppPage"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">App&nbsp;Add</a>
+                </li>
+                <li>
+                  <a href="/AddAppView"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">App&nbsp;List</a>
+                </li>
+                <li>
+                  <a href="/AppRunList"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logs</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+
+</html>
+<script>
+  const userData = JSON.parse(document.getElementById('userData').value);
+  console.log("userData: " + userData);
+  const usertype = userData.field;
+  const username = userData.fname + " " + userData.lname;
+  const email = userData.email;
+
+  // Set the username and email values in the dropdown menu
+  document.getElementById('username').textContent = username;
+  document.getElementById('email').textContent = email;
+
+  if (usertype === "Admin") {
+    document.getElementById('register').style.display = "block";
+    document.getElementById('registerview').style.display = "block";
+  }
+  // If the value of the "field" property is "user",not show the "Register" link
+  else if (usertype === "User") {
+    document.getElementById('register').style.display = "none";
+    document.getElementById('registerview').style.display = "none";
+  }
+
+</script>
