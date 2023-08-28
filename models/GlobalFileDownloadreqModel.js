@@ -11,5 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         status: { type: DataTypes.BOOLEAN, defaultValue: false },
     });
+    
     return GlobalFileDownloadreq;
 };
